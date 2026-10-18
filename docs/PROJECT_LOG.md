@@ -74,3 +74,37 @@ Current rules:
 
 ## Next checkpoint
 **Run and interpret customer-level net-spending EDA.** Append the actual printed statistics, figure name, interpretation, and any methodological decisions to this log. Then commit the documentation and confirmed EDA checkpoint.
+
+## Customer Spending Distribution EDA — October 18, 2026
+
+### Results
+- Cleaned transaction rows: 406,790
+- Unique customers after cleaning: 4,371
+- Mean customer net spending: £1,898.90
+- Median customer net spending: £648.41
+- Standard deviation: £8,220.23
+- Minimum: -£4,287.63
+- Maximum: £279,489.02
+- Customers with negative net spending: 42
+- 99th percentile of positive customer spending: approximately £17,481.20
+- Customers included in the histogram: 4,327
+
+### Findings
+Customer spending is strongly right-skewed. The mean substantially exceeds the median, and high-spending customers contribute to large variation in the distribution.
+
+Negative customer totals demonstrate why cancellations must be considered when measuring net spending.
+
+The histogram excludes the highest 1% of positive spenders for visualization only. All cleaned customers remain available for subsequent analysis.
+
+### Methodological implications
+1. Compare mean and median regression baselines.
+2. Evaluate MAE, RMSE, and R² on chronological holdout data.
+3. Investigate errors across customer spending segments.
+4. Construct the 30-day prediction target using only transactions from the designated future outcome window.
+5. Ensure all features are calculated strictly from information available before each prediction date.
+
+### Important limitation
+These results describe total customer spending across the full available observation period. They do not represent future 30-day spending or predictive performance.
+
+### Next step
+Define the prediction date, eligible customer population, historical feature window, and future 30-day target before implementing the modeling dataset.
